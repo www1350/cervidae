@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.absurd.cervidae.dao.TinyUrlDao">
+    <resultMap id="TinyUrlMap" type="com.absurd.cervidae.domain.TinyUrl">
+        <result column="id" property="id" />
+        <result column="url" property="url" />
+    </resultMap>
+
+    <parameterMap id="TinyUrl" type="com.absurd.cervidae.domain.TinyUrl"/>
+
+    <sql id="Base_Column_List">
+        id, url
+    </sql>
+
+    <insert id="saveTinyUrl" parameterMap="TinyUrl"  useGeneratedKeys="true" keyProperty="id">
+        insert into
+        tiny_url(url)
+        values
+        (#{url})
+    </insert>
+
+
+    <select id="getById" resultMap="TinyUrlMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from tiny_url
+        where id = #{id}
+    </select>
+
+
+    <update id="updateTinyUrl" parameterMap="TinyUrl">
+        update
+        tiny_url
+        set
+        <if test="url!=null">
+            url = #{url},
+        </if>
+        where
+        id = #{id}
+    </update>
+</mapper>
