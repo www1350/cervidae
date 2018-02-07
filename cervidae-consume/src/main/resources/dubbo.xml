@@ -17,6 +17,6 @@
 
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:reference interface="com.absurd.cervidae.api.TinyServiceApi" id="tinyServiceApi" />
+    <dubbo:reference interface="com.absurd.cervidae.api.TinyServiceApi" id="tinyServiceApi" group="tiny"/>
 
 </beans>

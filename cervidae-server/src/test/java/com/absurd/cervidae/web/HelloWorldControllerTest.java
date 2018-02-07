@@ -17,10 +17,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @time 2018/2/5
  */
 public class HelloWorldControllerTest extends BaseMvcTest{
-    @Before
-    public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
-    }
+//    @Before
+//    public void setUp() throws Exception {
+//        mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
+//    }
 
     @Test
     public void testSayHello() {

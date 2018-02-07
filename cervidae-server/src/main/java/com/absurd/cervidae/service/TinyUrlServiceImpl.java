@@ -34,6 +34,7 @@ public class TinyUrlServiceImpl implements TinyUrlService{
 
     @Override
     public String encodeUrl(String url) {
+        log.info("encode {}",url);
         String encodeUrl = stringRedisTemplate.opsForValue().get(url);
         if (encodeUrl != null && encodeUrl.length() > 0 ) return encodeUrl;
         StringBuilder urlSbf = new StringBuilder();
